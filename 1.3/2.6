@@ -1,0 +1,37 @@
+call artem
+hlt
+     
+
+v1:
+mov a,1
+v5:
+hlt
+
+
+artem:
+mov a,5 ; число на входе, <=5
+mov d,a
+dec d
+cmp a,1
+je v5
+cmp a,0
+jz v1
+mov b,a
+v2:
+dec b
+push b
+cmp b,0
+jnz v2
+pop c 
+cmp c,0
+jz v4
+v4:
+pop c
+mul c
+cmp c,d
+jb v4
+
+ret	; результат работы подпрограммы находится в регистре A
+
+
+
