@@ -1,0 +1,134 @@
+MOV  A,55  ;число на входе
+CMP A, 5
+JA ERROR1
+
+
+
+PUSH A
+ADD A,48
+MOV D, 232
+MOV [D],A
+INC D
+MOV [D], 33
+INC D
+MOV [D],61
+INC D
+CMP A, 48
+JE ZERO 
+ZERO1:
+          
+RETURN:
+MOV [D], A
+INC D
+MOV [D],42
+INC D
+DEC A
+CMP A, 49
+JAE RETURN
+DEC D
+MOV [D], 61
+pop a
+push a
+cmp a, 1
+je ARTEM2
+        
+MOV A, 0
+MOV B, 0
+MOV C, 0
+MOV D, 0
+ 
+POP A 
+
+call artem
+
+v1:
+mov a,1
+v5:
+hlt
+
+
+artem:
+
+mov d,a
+dec d
+cmp a,1
+je v5
+cmp a,0
+jz v1
+mov b,a
+v2:
+dec b
+push b
+cmp b,0
+jnz v2
+pop c 
+cmp c,0
+jz v4
+v4:
+pop c
+mul c
+cmp c,d
+jb v4
+
+
+ARTEM2:
+CALL ARTEM1
+
+HLT
+
+ARTEM1:
+MOV D, 250
+PUSH A
+DIV 100
+MOV B, A
+ADD B, 48
+MOV [D], B
+INC D
+MUL 100
+POP C
+SUB C,A
+PUSH C
+POP A
+DIV 10
+MOV B, A
+ADD B, 48
+MOV [D], B
+INC D
+MUL 10
+SUB C,A
+ADD C, 48
+MOV [D], C
+
+
+END: HLT
+
+ZERO:
+MOV A, 1
+PUSH A
+MOV A, 49
+JMP ZERO1
+
+
+ERROR1:
+JMP start
+CVV: DB "ошибка" 
+     DB 0	
+
+start:
+MOV C, CVV     
+MOV D, 232
+CALL print
+HLT             
+
+print:			
+	
+
+MOV A, [C]	
+MOV [D], A	
+INC C
+INC D  
+CMP B, [C]	
+JNZ print	
+
+	
+RET
