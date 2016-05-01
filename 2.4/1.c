@@ -18,43 +18,52 @@ int main()
     if (r>=g)
         max=r;
     else max=g;
-    if (b>=g)
+    if (b>=max)
     max=b;
 
     if (r<=g)
     	min=r;
     else min=g;
-    if (b<=g)
+    if (b<=min)
     	min=b;
-    v=max;
+    v=100*max;
     h=Hue(r,g,b,min,max);
-    s=Saturation(max,min);
+    s=100*Saturation(max,min);
+    printf("%f %f\n",max,min );
 
-    printf("H=%.0f   S=%.0f  V=%.0f\n",Hue(r,g,b,min,max),100*Saturation(max,min),v*100);
+
+
+    printf("H=%.0f   S=%.0f  V=%.0f\n",Hue(r,g,b,min,max),100*Saturation(max,min),v);
     if (h<=30 && s<=100 && v<=40)
-    	{printf("черный цвет\n");}
-    if (h==0 && s==0 && s==100 );
-       {printf("белый цвет\n");}
-    if (h>=40 && s<=60 && s==100 && s!=0 && h!=0 );
-    printf("примерно белый цвет\n");
+    	printf("черный цвет\n");
+    if (h==0 && s==0 && v==100 )
+       printf("белый цвет\n");
+    if (h>=40 && s<=60 && v==100 && s!=0 && h!=0 )
+        printf("примерно белый цвет\n");
+    
     if (h==60 && s==100 && v==100)
-    	printf("желтый цвет\n");
-    if (h>=42 && h<=59 && s>=86 && s<=100 && v>=85 && v<=100);
+        printf("желтый цвет\n");
+    if (h>=42 && h<=59 && s>=86 && s<=100 && v>=85 && v<=100)
         printf("примерно жёлтый\n");
+    
     if (h==350 && s==25 && v==100)
-    	printf("розовый цвет \n");
+        printf("розовый цвет \n");
     if (h>=334 && h<=360 && s>=26 && s<=34 && v>=97 && h!=350)
-    	printf("примерно розовый цвет\n");
+        printf("примерно розовый цвет\n");
+    
     if (h==0 && s==100 && v==100)
-    	printf("красный цвет \n");
+        printf("красный цвет \n");
     if (h>0 && h<=7 && s>79 && s<=100 &&  v>79 && v<=100)
-    	printf("примерно красный\n");
+        printf("примерно красный\n");
+    
     if (h==120 && s==100 && v==50)
-    	printf("зеленый цвет\n");
+        printf("зеленый цвет\n");
     if (h>95 && h<134 && h!=120 && s>36 && s<100 && v>56)
-    	printf("примерно зеленый\n");
+        printf("примерно зеленый\n");
+    
     if (h>=0 && h<=360 && s<21 && v>=50 && v<=19)
-    	printf("серый цвет\n");
+        printf("серый цвет\n");
+    
 
 
 
