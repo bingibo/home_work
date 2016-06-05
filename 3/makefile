@@ -1,5 +1,5 @@
 CC = gcc
 
-compile: book2.c 
-	$(CC) book2.c  
+compile: book2.c func.c
+	$(CC) book2.c  func.c
 

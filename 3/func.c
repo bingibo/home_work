@@ -1,3 +1,4 @@
+#include "head.h"
 #define tsize 20
 typedef struct book
   { char name[tsize];
@@ -10,6 +11,7 @@ typedef struct book
  book *begin;
  book *end; 
 
+
 void create(void);
 void delete(book **begin, book **end);
 void search(void);
@@ -18,7 +20,6 @@ void save(void);
 void get();
 void alphabet(book *point,  book **begin, book **end);
 void print (book *begin);
-book *search1(char *);
 
 
 
@@ -176,10 +177,5 @@ void save(void)
     }
     return NULL;
 }
-
-
-
-
-
 
 

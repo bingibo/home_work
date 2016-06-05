@@ -1,4 +1,23 @@
 #include "head.h"
+#define tsize 20
+typedef struct book
+  { char name[tsize];
+    char phone[tsize];
+    struct book *next;
+    struct book *prev;
+   } book;
+
+
+book *begin;
+book *end; 
+void create(void);
+void delete(book **begin, book **end);
+void search(void);
+book *search1(char *);
+void save(void);
+void get();
+void alphabet(book *point,  book **begin, book **end);
+void print (book *begin);
 
  int main ()
  {  int a;
